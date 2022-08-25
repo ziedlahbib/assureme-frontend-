@@ -1,0 +1,170 @@
+
+
+<style type="text/css">
+    #ajouter { color: white;
+                background-color: rgb(52, 114, 207);
+                border-radius: 30%; }
+    #imageid{
+            top: 50px;
+                }
+    .zied {
+          width: 130px;
+          height: 195px;
+          top: 50px;
+          right: 0px;
+  
+      }
+    .zied .zied-top {
+          width: 400px;
+          height: 400px;
+          display: none;
+          position: absolute;
+          left: 50%;
+          z-index: 99;
+      }
+    .zied:hover .zied-top {
+          display: inline;
+      }
+  
+  
+  .example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+  
+  }
+  
+  .example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 700px;
+  }
+  #ziedpag {
+    color: blanchedalmond;
+    border: #FAFAD2;;
+    height: 40px;
+    width: 110px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 20%;
+    font-size: 16px;
+    margin: 10px 50px 20px;
+  
+  }
+  .matrowzied {
+          overflow: auto;
+  
+  
+  
+  }
+  .contenue{
+   bottom:12px;
+  }
+  #btnControl {
+      display: none;
+  }
+  
+  #btnControl+ label > img {
+      width: 70px;
+      height: 74px;
+  }
+  
+  </style>
+  
+  <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">   
+      <button id="ajouter" id="ziedpag" style="background-color:#14dc49" routerLink="/ajouter-assurance">ajouter</button>
+    <button id="ajouter" id="ziedpag"  style="background-color: #00CED1"  routerLink="#">acceuil</button>
+    </div>
+  
+  
+     <div class="container-fluid mt--7">
+  
+  
+      <div class="row">
+        <div class="col">
+          <div class="card shadow">
+  
+            <div class="card-header border-0">
+              <h3 class="mb-0">Assurance List</h3>
+            </div>
+  
+            <div>
+              <div class="table-responsive">
+                <div class="example-header">
+                  <mat-form-field>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="search" >
+                  </mat-form-field>
+                </div>
+  
+                <div class="example-container mat-elevation-z8">
+  
+                  <mat-table [dataSource]="dataSource" matSort class="table align-items-center table-flush">
+
+                    <!-- ID Column -->
+                    <ng-container matColumnDef="prix">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header > prix </mat-header-cell>
+                      <mat-cell *matCellDef="let row" >
+                        <div class="matrowzied">
+                          {{row.prix}}
+                        </div>
+  
+  
+                      </mat-cell>
+                    </ng-container>
+
+  
+                    <!-- ID Column -->
+                    <ng-container matColumnDef="description">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header > description </mat-header-cell>
+                      <mat-cell *matCellDef="let row" >
+                        <div class="matrowzied">
+                          {{row.description}}
+                        </div>
+  
+  
+                      </mat-cell>
+                    </ng-container>
+  
+
+
+  
+                    
+                    <!-- Color Column -->
+                    <ng-container matColumnDef="option" >
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> option </mat-header-cell>
+                      <mat-cell *matCellDef="let row" class="text-right " >
+                          <div >
+                            <button  class="dropdown-item"  id="ziedpag" style="background-color:#DC143C"  [routerLink]="['/assurance-management/modifier', row.assuId ]">modifier</button><br>
+                            <button  class="dropdown-item"  id="ziedpag"  style="background-color: #FA8072;" (click)="supprimer(row)">supprimer</button><br>
+                          </div>
+  
+  
+  
+                       </mat-cell>
+                    </ng-container>
+  
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </mat-row>
+                  </mat-table>
+                  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  

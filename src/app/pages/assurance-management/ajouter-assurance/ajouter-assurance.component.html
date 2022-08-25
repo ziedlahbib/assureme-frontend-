@@ -1,0 +1,27 @@
+<div class="card-body">
+    <form [formGroup]="assuranceform">
+        <div class="col-md-4 px-1">
+          <div class="form-group">
+            <label>prix</label>
+            <input type="text" class="form-control" placeholder="prix" formControlName="prix" >
+            <div *ngIf="  assuranceform.get('prix').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+            <div *ngIf="  assuranceform.get('prix').hasError('pattern')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> must a number example 99.99</div>
+           
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>description</label>
+            <textarea class="form-control textarea" formControlName="description"></textarea>
+            <div *ngIf="  assuranceform.get('description').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="update ml-auto mr-auto">
+          <button type="submit" class="btn btn-primary btn-round" (click)="ajouter()" [disabled]="assuranceform.invalid">ajouter</button>
+        </div>
+      </div>
+    </form>
+  </div>
