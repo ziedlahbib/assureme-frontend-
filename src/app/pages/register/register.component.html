@@ -24,13 +24,13 @@
             <div class="text-center text-muted mb-4">
               <small> sign up with credentials</small>
             </div>
-            <form role="form">
+            <form [formGroup]="userform" role="form">
               <div class="form-group">
                 <div class="input-group input-group-alternative mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                   </div>
-                  <input class="form-control" placeholder="Name" type="text">
+                  <input class="form-control" formControlName="userName" placeholder="username" type="text">
                 </div>
               </div>
               <div class="form-group">
@@ -38,7 +38,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                   </div>
-                  <input class="form-control" placeholder="Email" type="email">
+                  <input class="form-control" formControlName="email"placeholder="Email" type="email">
                 </div>
               </div>
               <div class="form-group">
@@ -46,11 +46,11 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                   </div>
-                  <input class="form-control" placeholder="Password" type="password">
+                  <input class="form-control" formControlName="password" placeholder="Password" type="password">
                 </div>
               </div>
               <div class="text-center">
-                <button type="button" class="btn btn-primary mt-4">Create account</button>
+                <button type="button" class="btn btn-primary mt-4" (click)="ajouter()">Create account</button>
               </div>
             </form>
           </div>
