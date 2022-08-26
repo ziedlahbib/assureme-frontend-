@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthServiceService } from 'app/service/auth-service.service';
+
 
 @Component({
     selector: 'user-cmp',
@@ -7,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class UserComponent implements OnInit{
+
+    username:String;
     ngOnInit(){
+        this.username=sessionStorage.getItem("userName");
+      console.log(this.username);
     }
 }

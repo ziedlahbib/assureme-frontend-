@@ -12,10 +12,11 @@ import { AppComponent } from './app.component';
 import { routes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from './pages/login/login.component';
 import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
+import { HttpInterceptorService } from "./service/http-interceptor.service";
 
 
 
@@ -44,7 +45,13 @@ import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component
     ReactiveFormsModule,
     NgbModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
