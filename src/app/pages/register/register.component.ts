@@ -36,7 +36,7 @@ ajouter(){
   this.us.registration(this.userform.value).subscribe(
   data=>{
     this.user=data; 
-    this.router.navigate(["/assurance-management"])
+    this.router.navigate(["/login"])
   } 
   );  
 }

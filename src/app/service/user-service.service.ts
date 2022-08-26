@@ -9,8 +9,13 @@ import { Observable } from 'rxjs';
 export class UserServiceService {
 
   registartionurlUrl="http://localhost:8081/registration";
+  getbyusernameurl="/api/user/get-userbyusername";
   constructor(private http : HttpClient) { }
   registration(user :User): Observable<User>{
     return this.http.post<User>(`${this.registartionurlUrl}`,user);
+  }
+  getuserbyusername(username:String): Observable<User>{
+    return this.http.get<User>(`${this.getbyusernameurl}/${username}`);
+
   }
 }

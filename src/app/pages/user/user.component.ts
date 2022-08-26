@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'app/models/user.model';
 import { AuthServiceService } from 'app/service/auth-service.service';
+import { UserServiceService } from 'app/service/user-service.service';
 
 
 @Component({
@@ -10,9 +12,15 @@ import { AuthServiceService } from 'app/service/auth-service.service';
 
 export class UserComponent implements OnInit{
 
-    username:String;
+    user:User;
+    constructor(private us:UserServiceService) { }
     ngOnInit(){
-        this.username=sessionStorage.getItem("userName");
-      console.log(this.username);
+     console.log(sessionStorage.authenticatedUser)
+     this.us.getuserbyusername(sessionStorage.authenticatedUser).subscribe(
+        data=>{
+            this.user=data;
+            console.log(data);
+        }
+     )
     }
 }

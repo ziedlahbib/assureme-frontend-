@@ -16,12 +16,12 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/', title: 'Home',  icon:'ni-single-02 text-yellow', class: '' },
-    { path: '/reclamation-management', title: 'Reclamations',  icon: 'ni-chart-bar-32 text-info', class: '' },
-     { path: '/', title: 'Events',  icon:'ni-tie-bow text-pink', class: '' },
-     { path: '/feedback-management-user', title: 'Feedbacks',  icon:'ni-laptop text-black', class: '' },
-     { path: '/home', title: 'Forom',  icon:'ni-notification-70 text-blue', class: '' },
-     { path: '/', title: 'Trip ',  icon:'ni-square-pin text-green', class: '' }
+    //{ path: '/', title: 'Home',  icon:'ni-single-02 text-yellow', class: '' },
+    { path: '/gestion des vehicule', title: 'Gestion des Vehicule',  icon: 'ni-chart-bar-32 text-info', class: '' },
+     { path: '/Cherchermeilleurassurance', title: 'meilleure package ',  icon:'ni-tie-bow text-pink', class: '' },
+     //{ path: '/feedback-management-user', title: 'Feedbacks',  icon:'ni-laptop text-black', class: '' },
+     //{ path: '/home', title: 'Forom',  icon:'ni-notification-70 text-blue', class: '' },
+     //{ path: '/', title: 'Trip ',  icon:'ni-square-pin text-green', class: '' }
 ];
 
 

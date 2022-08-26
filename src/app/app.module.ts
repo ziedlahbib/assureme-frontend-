@@ -17,11 +17,12 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from './pages/login/login.component';
 import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
 import { HttpInterceptorService } from "./service/http-interceptor.service";
-import { UserLayoutComponent } from "./layouts/user-layout/user-layout.component";
+
 import { NavigationComponent } from "./pages/navigation/navigation.component";
 import { FooterFrontComponent } from "./shared/footer-front/footer-front.component";
 import { NavbarFrontComponent } from "./shared/navbar-front/navbar-front.component";
-import { CherchermeilleurassuranceComponent } from './pages/cherchermeilleurassurance/cherchermeilleurassurance.component';
+import { UserLayoutComponent } from "./layouts/user-layout/user-layout.component";
+
 
 
 

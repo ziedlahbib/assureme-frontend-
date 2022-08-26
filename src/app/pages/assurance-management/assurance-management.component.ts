@@ -43,6 +43,7 @@ export class AssuranceManagementComponent implements OnInit {
         this.dataSource.sort = this.sort;
       }
     )
+    console.log(sessionStorage)
   }
   supprimer(assurance :any){
     this.assuranceservice.deleteassurance(assurance.assuId).subscribe(()=>this.assuranceservice.getAssurances().subscribe(
