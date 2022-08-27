@@ -22,6 +22,7 @@ import { NavigationComponent } from "./pages/navigation/navigation.component";
 import { FooterFrontComponent } from "./shared/footer-front/footer-front.component";
 import { NavbarFrontComponent } from "./shared/navbar-front/navbar-front.component";
 import { UserLayoutComponent } from "./layouts/user-layout/user-layout.component";
+import { VehiculeManagmentComponent } from './pages/vehicule-managment/vehicule-managment.component';
 
 
 
@@ -36,6 +37,7 @@ import { UserLayoutComponent } from "./layouts/user-layout/user-layout.component
     FooterFrontComponent,
     NavigationComponent,
     NavbarFrontComponent,
+ 
 
 
    

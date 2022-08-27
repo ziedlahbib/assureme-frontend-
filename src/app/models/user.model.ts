@@ -1,4 +1,5 @@
-import { Role } from "./role";
+
+import { Role } from "./role.model";
 import { Vehicule } from "./vehicule.model";
 
 export class User {

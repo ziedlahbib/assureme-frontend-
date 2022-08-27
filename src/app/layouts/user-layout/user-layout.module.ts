@@ -21,6 +21,7 @@ import {MatCardModule} from '@angular/material/card';
 ;
 import { MatDialogModule } from '@angular/material/dialog';
 import { CherchermeilleurassuranceComponent } from 'app/pages/cherchermeilleurassurance/cherchermeilleurassurance.component';
+import { VehiculeManagmentComponent } from 'app/pages/vehicule-managment/vehicule-managment.component';
 
 // import { ToastrModule } from 'ngx-toastr';
 @NgModule({
@@ -52,7 +53,8 @@ import { CherchermeilleurassuranceComponent } from 'app/pages/cherchermeilleuras
   ],
 
   declarations: [
-    CherchermeilleurassuranceComponent
+    CherchermeilleurassuranceComponent,
+    VehiculeManagmentComponent,
 
   ]
   ,entryComponents: [],
