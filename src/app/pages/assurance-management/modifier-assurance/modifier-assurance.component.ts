@@ -22,7 +22,7 @@ export class ModifierAssuranceComponent implements OnInit,AfterContentInit {
   }
 
   ngOnInit(): void {
-    
+    this.initForm(this.assurance)
   }
 
   initForm(data) {
@@ -31,7 +31,7 @@ export class ModifierAssuranceComponent implements OnInit,AfterContentInit {
       prix: [data?.prix, [Validators.required,Validators.pattern('^[0-9]+(\.[0-9]{1,2})?$')]],
   })
   this.assuranceform.valueChanges.subscribe(
-    data=>{console.log(this.assuranceform)}
+    data=>{console.log(this.assuranceform.value)}
   )
 }
   get(id:number){
@@ -48,7 +48,8 @@ export class ModifierAssuranceComponent implements OnInit,AfterContentInit {
 
     this.assuranceservice.updateassurance(this.router.snapshot.params.id,this.assuranceform.value).subscribe(
       data=>{
-        console.log(data)
+        console.log(this.assuranceform.value);
+
         this.assurance=data;
         this.toastr.success('assurance modified Successfully ','assurance modified Successfully');
         let audio = new Audio()

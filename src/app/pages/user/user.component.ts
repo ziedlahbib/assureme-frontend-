@@ -7,6 +7,7 @@ import { UserServiceService } from 'app/service/user-service.service';
 import { ToastrService } from 'ngx-toastr';
 
 
+
 @Component({
     selector: 'user-cmp',
     moduleId: module.id,
