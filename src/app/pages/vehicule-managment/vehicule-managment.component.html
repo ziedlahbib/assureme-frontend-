@@ -140,32 +140,30 @@
           <ng-container matColumnDef="option" >
             <mat-header-cell *matHeaderCellDef mat-sort-header> option </mat-header-cell>
             <mat-cell *matCellDef="let row" class="text-right " >
-              <div class="form-group row">
-                <div>
-                  <select [(ngModel)]="selectedOption" >
-                    <option [value]="null">Select one...</option>
-                    <option *ngFor="let c of listofassurance ">{{c.assuId}}
-                    </option>
-                  </select>
-                </div>
-
+              <div >
                 <div >
-                  <div *ngIf="row.etat_assu === 'null'" >
-  
-                    <button type="button" class="btn btn-secondary" (click)="affecter(selectedOption,row.vehId,row)" >s'inscrire</button>
-      
+                  <div>
+                    <select [(ngModel)]="selectedOption"  class="form-select" aria-label="Default select example">
+                      <option [value]="null">Select one...</option>
+                      <option *ngFor="let c of listofassurance ">{{c.assuId}}
+                      </option>
+                    </select>
                   </div>
-                  <div *ngIf="row.etat_assu === 'inscrit'">
-      
-                    <button  type="button" class="btn btn-secondary" (click)="desaffecter(row.vehId,row)" >se desabonné</button>
-      
+  
+                  <div >
+                    <div *ngIf="row.etat_assu === 'null'" >
+    
+                      <button type="button" class="btn btn-secondary" (click)="affecter(selectedOption,row.vehId,row)" >s'inscrire</button>
+        
+                    </div>
+                    <div *ngIf="row.etat_assu === 'inscrit'">
+        
+                      <button  type="button" class="btn btn-secondary" (click)="desaffecter(row.vehId,row)" >se desabonné</button>
+        
+                    </div>
                   </div>
-                </div>
-            </div>
-              
-  
-  
-  
+              </div>
+              </div>
              </mat-cell>
           </ng-container>
   
