@@ -19,4 +19,10 @@ export class VehiculeServiceService {
   getvehiculesbyuser(id:Number) :Observable<any> {
     return this.http.get(`${this.vehiculebyuserurl}/${id}`);
     }
+    affectvehiculeassurance(ida:Number,idv :Number,vehicule :Vehicule): Observable<Vehicule>{
+      return this.http.put<Vehicule>("/api/vehicule/affecter-vehicule-assurance/"+ida+"/"+idv,vehicule);
+    }
+    desaffectvehiculeassurance(idv:Number,vehicule :Vehicule): Observable<Vehicule>{
+      return this.http.put<Vehicule>("/api/vehicule/desaaffecter-vehicule-assurance/"+idv,vehicule);
+    }
 }

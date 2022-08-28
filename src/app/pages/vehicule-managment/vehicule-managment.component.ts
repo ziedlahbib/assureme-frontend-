@@ -20,6 +20,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatChipsModule } from '@angular/material/chips';
+import { AssuranceServiceService } from 'app/service/assurance-service.service';
+import { Assurance } from 'app/models/assurance.model';
 
 @Component({
   selector: 'app-vehicule-managment',
@@ -28,6 +30,8 @@ import { MatChipsModule } from '@angular/material/chips';
 })
 export class VehiculeManagmentComponent implements OnInit {
 
+  selectedOption = "null";
+  listofassurance:Assurance[];
   public vehiculeform: FormGroup;
   listofvehicule:Vehicule[];
   vehicule:Vehicule;
@@ -39,12 +43,12 @@ export class VehiculeManagmentComponent implements OnInit {
   puissance= Puissance;
   alimentation= Alimentation;
   counters = [100, 200, 10];
-  displayedColumns = ['date_achat','date_mise_cir', 'marque', 'modele', 'carosserie', 'alimentation', 'puissance'];
+  displayedColumns = ['date_achat','date_mise_cir', 'marque', 'modele', 'carosserie', 'alimentation', 'puissance','option'];
   dataSource: MatTableDataSource<Vehicule>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  constructor(private us:UserServiceService,private vs:VehiculeServiceService,private formBuilder: FormBuilder,private router:Router,private toastr : ToastrService) { }
+  constructor(private assuranceservice:AssuranceServiceService,private us:UserServiceService,private vs:VehiculeServiceService,private formBuilder: FormBuilder,private router:Router,private toastr : ToastrService) { }
 
   ngOnInit(): void {
     this.initForm()
@@ -68,6 +72,13 @@ export class VehiculeManagmentComponent implements OnInit {
         
       }
    )
+   this.assuranceservice.getAssurances().subscribe(
+    data=>{
+      this.listofassurance=data;
+      console.log(data);
+
+    }
+  )
   
   }
   initForm() {
@@ -115,5 +126,29 @@ applyFilter(filterValue: string) {
   filterValue = filterValue.trim(); // Remove whitespace
   filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
   this.dataSource.filter = filterValue;
+}
+affecter(ida:Number,idv:Number,veh :any){
+  this.vs.affectvehiculeassurance(ida,idv,veh).subscribe(()=> this.vs.getvehiculesbyuser(this.user.userId).subscribe(
+    res=>{
+      console.log(res)
+      this.listofvehicule=res;
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource._renderChangesSubscription;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    }
+   ));
+}
+desaffecter(idv:Number,veh :any){
+  this.vs.desaffectvehiculeassurance(idv,veh).subscribe(()=> this.vs.getvehiculesbyuser(this.user.userId).subscribe(
+    res=>{
+      console.log(res)
+      this.listofvehicule=res;
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource._renderChangesSubscription;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    }
+   ));
 }
 }

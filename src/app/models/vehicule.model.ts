@@ -15,6 +15,7 @@ export class Vehicule {
     carosserie:Carosserie;
     alimentation:Alimentation;
     puissance:Puissance;
+    etat_assu:String;
     user:User;
     assu:Assurance;
 

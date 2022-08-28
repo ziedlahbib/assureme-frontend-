@@ -17,17 +17,18 @@ export class ModifierAssuranceComponent implements OnInit,AfterContentInit {
   public assuranceform: FormGroup;
   constructor(private toastr : ToastrService,private assuranceservice:AssuranceServiceService,private router:ActivatedRoute,private route :Router,private formBuilder: FormBuilder) { }
   ngAfterContentInit(): void {
-    this.get(this.router.snapshot.params.id)
+    
   }
 
   ngOnInit(): void {
 
+    this.get(this.router.snapshot.params.id)
   }
 
   initForm(data) {
     this.assuranceform = this.formBuilder.group({
-      description: [data?.description, Validators.required],
-      prix: [data?.prix, [Validators.required,Validators.pattern('^[0-9]+(\.[0-9]{1,2})?$')]],
+      description: [data?.description],
+      prix: [data?.prix],
   })
   this.assuranceform.valueChanges.subscribe(
     data=>{console.log(this.assuranceform)}
