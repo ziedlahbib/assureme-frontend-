@@ -138,14 +138,14 @@
           </ng-container>
 
           <ng-container matColumnDef="option" >
-            <mat-header-cell *matHeaderCellDef mat-sort-header> option </mat-header-cell>
-            <mat-cell *matCellDef="let row" class="text-right " >
+            <mat-header-cell *matHeaderCellDef mat-sort-header> assurance </mat-header-cell>
+            <mat-cell *matCellDef="let row"  >
               <div >
                 <div >
                   <div>
                     <select [(ngModel)]="selectedOption"  class="form-select" aria-label="Default select example">
                       <option [value]="null">Select one...</option>
-                      <option *ngFor="let c of listofassurance ">{{c.assuId}}
+                      <option *ngFor="let c of listofassurance " >{{c.assuId}}
                       </option>
                     </select>
                   </div>
