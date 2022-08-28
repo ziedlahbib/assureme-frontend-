@@ -4,12 +4,8 @@
           <div class="form-group">
             <label>prix</label>
             <input type="text" formControlName="prix" class="form-control" placeholder="prix" >
-            <!--
-
-               <div *ngIf="  assuranceform.get('prix').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+            <div *ngIf="  assuranceform.get('prix').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
             <div *ngIf="  assuranceform.get('prix').hasError('pattern')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> must a number example 99.99</div>
-           
-            -->
            
           </div>
         </div>
@@ -18,11 +14,7 @@
           <div class="form-group">
             <label>description</label>
             <textarea formControlName="description"class="form-control textarea" ></textarea>
-            <!--
-
-              <div *ngIf="  assuranceform.get('description').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
-          
-            -->
+            <div *ngIf="  assuranceform.get('description').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
           </div>
         </div>
       </div>

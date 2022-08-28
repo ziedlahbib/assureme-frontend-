@@ -24,6 +24,7 @@ import { CherchermeilleurassuranceComponent } from 'app/pages/cherchermeilleuras
 import { VehiculeManagmentComponent } from 'app/pages/vehicule-managment/vehicule-managment.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { HomeComponent } from 'app/pages/home/home.component';
+import { UserComponent } from 'app/pages/user/user.component';
 
 // import { ToastrModule } from 'ngx-toastr';
 @NgModule({
@@ -59,6 +60,7 @@ import { HomeComponent } from 'app/pages/home/home.component';
     CherchermeilleurassuranceComponent,
     VehiculeManagmentComponent,
     HomeComponent,
+    UserComponent,
 
   ]
   ,entryComponents: [],

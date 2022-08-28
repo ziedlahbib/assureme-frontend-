@@ -23,6 +23,7 @@ export const ROUTES: RouteInfo[] = [
     //{ path: '/', title: 'Home',  icon:'ni-single-02 text-yellow', class: '' },
     { path: '/vehiculemanagement', title: 'Gestion des Vehicule',  icon: 'ni-chart-bar-32 text-info', class: '' },
      { path: '/Cherchermeilleurassurance', title: 'meilleure pack ',  icon:'ni-tie-bow text-pink', class: '' },
+     { path: '/user',          title: 'User Profile',      icon:'ni-tie-bow text-pink',  class: '' },
      { path: '/home', title: 'acceuil ',  icon:'ni-tie-bow text-pink', class: '' },
      //{ path: '/feedback-management-user', title: 'Feedbacks',  icon:'ni-laptop text-black', class: '' },
      //{ path: '/home', title: 'Forom',  icon:'ni-notification-70 text-blue', class: '' },
@@ -62,6 +63,7 @@ export class NavbarFrontComponent implements OnInit {
         data=>{
             this.user=data;
             this.role=data.role;
+            console.log(data.role)
         }
      )
      this.isLoggedIn = this.authenticationService.isUserLoggedIn();

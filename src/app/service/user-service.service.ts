@@ -10,12 +10,17 @@ export class UserServiceService {
 
   registartionurlUrl="http://localhost:8081/registration";
   getbyusernameurl="/api/user/get-userbyusername";
+  updateuserUrl="/api/user/update-utilisateur";
   constructor(private http : HttpClient) { }
   registration(user :User): Observable<User>{
     return this.http.post<User>(`${this.registartionurlUrl}`,user);
   }
   getuserbyusername(username:String): Observable<User>{
     return this.http.get<User>(`${this.getbyusernameurl}/${username}`);
+
+  }
+  updateuser(user:User,id:Number): Observable<User>{
+    return this.http.put<User>(`${this.updateuserUrl}/${id}`,user);
 
   }
 }

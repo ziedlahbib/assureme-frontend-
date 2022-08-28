@@ -50,7 +50,7 @@ import { ModifierAssuranceComponent } from 'app/pages/assurance-management/modif
   ],
   declarations: [
     DashboardComponent,
-    UserComponent,
+    
     TableComponent,
     UpgradeComponent,
     TypographyComponent,
