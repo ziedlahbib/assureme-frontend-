@@ -1,0 +1,14 @@
+<div class="row row-cols-1 row-cols-md-3">
+    <div class="col mb-4"*ngFor="let a of listofassurancePagination">
+      <div class="card h-100" >
+        <div class="card-body">
+            <h5 class="card-title">assurance ID:{{a.assuId}}</h5>
+            <h6 class="card-title">Prix :{{a.prix}}</h6>
+            <p class="card-text">description : {{a.description}}</p>
+        </div>
+      </div>
+    </div>
+</div>
+        <div class="col-12" *ngIf="listofassurancePagination">
+            <mat-paginator [length]="listofassurance.length" [pageSize]="6" [pageSizeOptions]="[6, 12, 18]" (page)="paginate($event)"> </mat-paginator>
+        </div>

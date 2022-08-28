@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CherchermeilleurassuranceComponent } from 'app/pages/cherchermeilleurassurance/cherchermeilleurassurance.component';
 import { VehiculeManagmentComponent } from 'app/pages/vehicule-managment/vehicule-managment.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { HomeComponent } from 'app/pages/home/home.component';
 
 // import { ToastrModule } from 'ngx-toastr';
 @NgModule({
@@ -57,6 +58,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   declarations: [
     CherchermeilleurassuranceComponent,
     VehiculeManagmentComponent,
+    HomeComponent,
 
   ]
   ,entryComponents: [],
