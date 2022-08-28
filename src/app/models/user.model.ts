@@ -8,6 +8,7 @@ export class User {
     address:String;
     active:Boolean;
     roles:Role[];
+    role:String;
     city:String;
     code_postale:Number;
     tel:String;

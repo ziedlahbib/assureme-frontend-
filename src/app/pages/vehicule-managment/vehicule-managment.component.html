@@ -1,1 +1,147 @@
-<p>vehicule-managment works!</p>
+<div class="card-body">
+    <form [formGroup]="vehiculeform">
+        <div class="col-md-4 px-1">
+            <div class="form-group row">
+                <label for="example-date-input" class="col-2 col-form-label">date achat</label>
+                <div class="col-10">
+                  <input class="form-control" type="date"   formControlName="date_achat">
+                  <div *ngIf="  vehiculeform.get('date_achat').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+                  
+                </div>
+              </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-date-input" class="col-2 col-form-label">date mise en circulationt</label>
+            <div class="col-10">
+              <input class="form-control" type="date"   formControlName="date_mise_cir">
+              <div *ngIf="  vehiculeform.get('date_mise_cir').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+              
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-search-input" class="col-2 col-form-label">Marque</label>
+            <div>
+              <select id="marque" formControlName="marque">
+                <option [value]="null">Select one...</option>
+                <option *ngFor="let c of marque | keyvalue" [value]="c.value">{{c.value}}</option>
+                
+              </select>
+              <div *ngIf="  vehiculeform.get('marque').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-search-input" class="col-2 col-form-label">modele</label>
+            <div>
+              <select id="modele" formControlName="modele">
+                <option [value]="null">Select one...</option>
+                <option *ngFor="let c of modele | keyvalue" [value]="c.value">{{c.value}}</option>
+                
+              </select>
+              <div *ngIf="  vehiculeform.get('modele').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-search-input" class="col-2 col-form-label">carosserie</label>
+            <div>
+              <select id="carosserie" formControlName="carosserie">
+                <option [value]="null">Select one...</option>
+                <option *ngFor="let c of carosserie | keyvalue" [value]="c.value">{{c.value}}</option>
+                
+              </select>
+              <div *ngIf="  vehiculeform.get('carosserie').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-search-input" class="col-2 col-form-label">puissance</label>
+            <div>
+              <select id="puissance" formControlName="puissance">
+                <option [value]="null">Select one...</option>
+                <option *ngFor="let c of puissance | keyvalue" [value]="c.value">{{c.value}}</option>
+                
+              </select>
+              <div *ngIf="  vehiculeform.get('puissance').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-search-input" class="col-2 col-form-label">alimentation</label>
+            <div>
+              <select id="alimentation" formControlName="alimentation">
+                <option [value]="null">Select one...</option>
+                <option *ngFor="let c of alimentation | keyvalue" [value]="c.value">{{c.value}}</option>
+                
+              </select>
+              <div *ngIf="  vehiculeform.get('alimentation').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+            </div>
+        </div>
+      <div class="row">
+        <div class="update ml-auto mr-auto">
+          <button type="submit" class="btn btn-primary btn-round" (click)="ajouter()" [disabled]="vehiculeform.invalid">ajouter</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div>
+    <div class="table-responsive">
+      <div class="example-header">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="search" >
+        </mat-form-field>
+      </div>
+  
+      <div class="example-container mat-elevation-z8">
+  
+        <mat-table [dataSource]="dataSource" matSort class="table align-items-center table-flush">
+          <!-- Name Column -->
+  
+  
+          <!-- ID Column -->
+          <ng-container matColumnDef="date_achat">
+            <mat-header-cell *matHeaderCellDef mat-sort-header > date achat </mat-header-cell>
+            <mat-cell *matCellDef="let row" >
+              <div class="matrowzied">
+                {{row.date_achat}}
+              </div>
+  
+  
+            </mat-cell>
+          </ng-container>
+  
+          <!-- Progress Column -->
+          <ng-container matColumnDef="date_mise_cir">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> date mise en circulation </mat-header-cell>
+            <mat-cell *matCellDef="let row"  > <div > {{row.date_mise_cir}}  </div></mat-cell>
+          </ng-container>
+  
+          <!-- Name Column -->
+          <ng-container matColumnDef="marque">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> marque </mat-header-cell>
+            <mat-cell *matCellDef="let row"  > <div >{{row.marque}} </div></mat-cell>
+          </ng-container>
+  
+          <!-- Color Column -->
+          <ng-container matColumnDef="modele">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> modele </mat-header-cell>
+            <mat-cell *matCellDef="let row"  ><div class="matrowzied"> {{row.modele}} </div> </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="carosserie">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> carosserie </mat-header-cell>
+            <mat-cell *matCellDef="let row"  ><div class="matrowzied"> {{row.carosserie}} </div> </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="alimentation">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> alimentation </mat-header-cell>
+            <mat-cell *matCellDef="let row"  ><div class="matrowzied"> {{row.alimentation}} </div> </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="puissance">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> puissance </mat-header-cell>
+            <mat-cell *matCellDef="let row"  ><div class="matrowzied"> {{row.puissance}} </div> </mat-cell>
+          </ng-container>
+  
+          <!-- Color Column -->
+  
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;">
+          </mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  
+  </div>

@@ -10,7 +10,7 @@ import { UserLayoutComponent } from './layouts/user-layout/user-layout.component
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   }, 
   {

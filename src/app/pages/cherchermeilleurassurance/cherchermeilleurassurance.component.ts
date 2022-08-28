@@ -10,7 +10,7 @@ export class CherchermeilleurassuranceComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(sessionStorage)
+
   }
 
 }
