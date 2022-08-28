@@ -14,7 +14,6 @@ import { ModifierAssuranceComponent } from 'app/pages/assurance-management/modif
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
-  
     { path: 'table',          component: TableComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
@@ -23,5 +22,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'assurance-management',        component: AssuranceManagementComponent }, 
     { path: 'ajouter-assurance',        component: AjouterAssuranceComponent }, 
-    { path: 'assurance-management/modifier/:id',           component: ModifierAssuranceComponent },
+    { path: 'assurance-management/modifier/:id',           component: ModifierAssuranceComponent, },
 ];
