@@ -30,7 +30,7 @@ import { Assurance } from 'app/models/assurance.model';
 })
 export class VehiculeManagmentComponent implements OnInit {
 
-  selectedOption = "null";
+  selectedOption = 0;
   listofassurance:Assurance[];
   public vehiculeform: FormGroup;
   listofvehicule:Vehicule[];
