@@ -14,7 +14,7 @@ export class AjouterAssuranceComponent implements OnInit,AfterContentInit {
 
   public assuranceform: FormGroup;
   assurance:Assurance;
-  prix:Number;
+  prix:Number=0;;
   constructor(private as:AssuranceServiceService,private formBuilder: FormBuilder,private router:Router,private toastr : ToastrService) { }
   ngAfterContentInit(): void {
   
@@ -43,7 +43,7 @@ export class AjouterAssuranceComponent implements OnInit,AfterContentInit {
       this.as.getprix(this.assuranceform.value).subscribe(
         res=>{
           console.log(res);
-          this.prix=res;
+          this.assuranceform.controls['prix'].setValue(res);
         }
       )
     }
