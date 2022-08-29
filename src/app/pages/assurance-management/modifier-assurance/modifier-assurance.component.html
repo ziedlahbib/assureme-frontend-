@@ -1,27 +1,79 @@
 <div class="card-body">
-    <form [formGroup]="assuranceform">
+  <form [formGroup]="assuranceform">
+      <div class="col-md-4 px-1">
+        <div class="col-md-5 pr-1">
+          <div class="form-group">
+            <label>prix (disabled)</label>
+            <input type="text" class="form-control" disabled="" placeholder={{assurance.prix}} formControlName="prix" >
+          </div>
+        </div>
+        </div>
+      <div class="row">
         <div class="col-md-4 px-1">
           <div class="form-group">
-            <label>prix</label>
-            <input type="text" formControlName="prix" class="form-control" placeholder="prix" >
-            <div *ngIf="  assuranceform.get('prix').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
-            <div *ngIf="  assuranceform.get('prix').hasError('pattern')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> must a number example 99.99</div>
-           
+            <label>garantie Conducteur</label>
+            <select class="form-control" formControlName="garantie_conducteur">
+              <option >yes</option>
+              <option >no</option>
+            </select>
+            <div *ngIf="  assuranceform.get('garantie_conducteur').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
           </div>
         </div>
-      <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-4 px-1">
           <div class="form-group">
-            <label>description</label>
-            <textarea formControlName="description"class="form-control textarea" ></textarea>
-            <div *ngIf="  assuranceform.get('description').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+            <label>bris de glace</label>
+            <select class="form-control" formControlName="bris_de_glace">
+              <option >yes</option>
+              <option >no</option>
+            </select>
+            <div *ngIf="  assuranceform.get('bris_de_glace').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+          </div>
+        </div>
+        <div class="col-md-4 px-1">
+          <div class="form-group">
+            <label>vol</label>
+            <select class="form-control" formControlName="vol">
+              <option >yes</option>
+              <option >no</option>
+            </select>
+            <div *ngIf="  assuranceform.get('vol').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+          </div>
+        </div>
+        <div class="col-md-4 px-1">
+          <div class="form-group" >
+            <label>Assistance</label>
+            <select class="form-control"  formControlName="assistance">
+              <option >yes</option>
+              <option >no</option>
+            </select>
+            <div *ngIf="  assuranceform.get('assistance').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+          </div>
+        </div>
+        <div class="col-md-4 px-1">
+          <div class="form-group">
+            <label>protection juridique</label>
+            <select class="form-control" formControlName="protection_juridique">
+              <option >yes</option>
+              <option >no</option>
+            </select>
+            <div *ngIf="  assuranceform.get('protection_juridique').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+          </div>
+        </div>
+        <div class="col-md-4 px-1">
+          <div class="form-group">
+            <label>garantie incendie</label>
+            <select class="form-control "formControlName="garentie_incendie">
+              <option>yes</option>
+              <option >no</option>
+            </select>
+            <div *ngIf="  assuranceform.get('garentie_incendie').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="update ml-auto mr-auto">
-          <button type="submit" class="btn btn-primary btn-round" (click)="modifier()" [disabled]="assuranceform.invalid">modifier</button>
-        </div>
+    <div class="row">
+      <div class="update ml-auto mr-auto">
+        <button type="submit" class="btn btn-primary btn-round" (click)="modifier()" [disabled]="assuranceform.invalid">update</button>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
+</div>

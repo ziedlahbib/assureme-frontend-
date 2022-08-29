@@ -21,7 +21,7 @@ export class AssuranceManagementComponent implements OnInit {
   listofassurance:Assurance[];
   counters = [100, 200, 10];
   meilleurDestination:any;
-  displayedColumns = ['description', 'prix','option'];
+  displayedColumns = ['garantie_conducteur','bris_de_glace','vol', 'assistance','protection_juridique','garentie_incendie','prix','option'];
   dataSource: MatTableDataSource<Assurance>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

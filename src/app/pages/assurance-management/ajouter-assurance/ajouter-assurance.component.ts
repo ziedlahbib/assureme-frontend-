@@ -14,7 +14,7 @@ export class AjouterAssuranceComponent implements OnInit,AfterContentInit {
 
   public assuranceform: FormGroup;
   assurance:Assurance;
-  prix:Number=0;;
+  prix:Number=0;
   constructor(private as:AssuranceServiceService,private formBuilder: FormBuilder,private router:Router,private toastr : ToastrService) { }
   ngAfterContentInit(): void {
   

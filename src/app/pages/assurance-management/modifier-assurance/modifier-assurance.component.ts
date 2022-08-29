@@ -27,11 +27,25 @@ export class ModifierAssuranceComponent implements OnInit,AfterContentInit {
 
   initForm(data) {
     this.assuranceform = this.formBuilder.group({
-      description: [data?.description, Validators.required],
-      prix: [data?.prix, [Validators.required,Validators.pattern('^[0-9]+(\.[0-9]{1,2})?$')]],
+      prix: [data?.prix],
+      garantie_conducteur: [data?.garantie_conducteur, Validators.required],
+      bris_de_glace: [data?.bris_de_glace, Validators.required],
+      vol: [data?.vol, Validators.required],
+      assistance: [data?.assistance, Validators.required],
+      protection_juridique: [data?.protection_juridique, Validators.required],
+      garentie_incendie: [data?.garentie_incendie, Validators.required],
   })
   this.assuranceform.valueChanges.subscribe(
-    data=>{console.log(this.assuranceform.value)}
+    data=>{
+      console.log(this.assuranceform.value)
+      this.assuranceservice.getprix(this.assuranceform.value).subscribe(
+        res=>{
+          console.log(res);
+          this.assuranceform.controls['prix'].setValue(res);
+        }
+      )
+    }
+   
   )
 }
   get(id:number){

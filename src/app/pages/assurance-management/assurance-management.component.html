@@ -124,11 +124,61 @@
 
   
                     <!-- ID Column -->
-                    <ng-container matColumnDef="description">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header > description </mat-header-cell>
+                    <ng-container matColumnDef="garantie_conducteur">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header > garantie conducteur </mat-header-cell>
                       <mat-cell *matCellDef="let row" >
                         <div class="matrowzied">
-                          {{row.description}}
+                          {{row.garantie_conducteur}}
+                        </div>
+  
+  
+                      </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="bris_de_glace">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header > bris de glace </mat-header-cell>
+                      <mat-cell *matCellDef="let row" >
+                        <div class="matrowzied">
+                          {{row.bris_de_glace}}
+                        </div>
+  
+  
+                      </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="vol">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header > vol </mat-header-cell>
+                      <mat-cell *matCellDef="let row" >
+                        <div class="matrowzied">
+                          {{row.vol}}
+                        </div>
+  
+  
+                      </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="assistance">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header > assistance </mat-header-cell>
+                      <mat-cell *matCellDef="let row" >
+                        <div class="matrowzied">
+                          {{row.assistance}}
+                        </div>
+  
+  
+                      </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="protection_juridique">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header > protection juridique </mat-header-cell>
+                      <mat-cell *matCellDef="let row" >
+                        <div class="matrowzied">
+                          {{row.protection_juridique}}
+                        </div>
+  
+  
+                      </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="garentie_incendie">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header > garentie incendie </mat-header-cell>
+                      <mat-cell *matCellDef="let row" >
+                        <div class="matrowzied">
+                          {{row.garentie_incendie}}
                         </div>
   
   
