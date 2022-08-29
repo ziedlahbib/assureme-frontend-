@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AssuranceServiceService } from 'app/service/assurance-service.service';
 import { Router } from '@angular/router';
@@ -10,23 +10,43 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './ajouter-assurance.component.html',
   styleUrls: ['./ajouter-assurance.component.scss']
 })
-export class AjouterAssuranceComponent implements OnInit {
+export class AjouterAssuranceComponent implements OnInit,AfterContentInit {
 
   public assuranceform: FormGroup;
   assurance:Assurance;
+  prix:Number;
   constructor(private as:AssuranceServiceService,private formBuilder: FormBuilder,private router:Router,private toastr : ToastrService) { }
+  ngAfterContentInit(): void {
+  
+
+  }
 
   ngOnInit(): void {
-    this.initForm()
+   
+    this.initForm();  
+
   }
   initForm() {
     this.assuranceform = this.formBuilder.group({
-      description: ['', Validators.required],
-      prix: ['', [Validators.required,Validators.pattern('^[0-9]+(\.[0-9]{1,2})?$')]],
+      garantie_conducteur: ['no', Validators.required],
+      bris_de_glace: ['no', Validators.required],
+      vol: ['no', Validators.required],
+      assistance: ['no', Validators.required],
+      protection_juridique: ['no', Validators.required],
+      garentie_incendie: ['no', Validators.required],
+      prix: [this.prix],
   });
 
   this.assuranceform.valueChanges.subscribe(
-    data=>{console.log(this.assuranceform)}
+    data=>{
+      console.log(this.assuranceform.value);
+      this.as.getprix(this.assuranceform.value).subscribe(
+        res=>{
+          console.log(res);
+          this.prix=res;
+        }
+      )
+    }
   )
 }
 ajouter(){

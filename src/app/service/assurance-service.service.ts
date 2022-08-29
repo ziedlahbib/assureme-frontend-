@@ -13,6 +13,7 @@ export class AssuranceServiceService {
   deleteassurancesUrl="/api/Assurance/delete-assurance";
   getAssuranceurl="/api/Assurance/get-assu";
   updateassurancepsUrl="/api/Assurance/update-assurance";
+  calculprixUrl="/api/Assurance/calcule-prix";
 
   constructor(private http : HttpClient) { }
 
@@ -32,4 +33,8 @@ export class AssuranceServiceService {
   updateassurance(id:Number,assurance:Assurance): Observable<Assurance>{
     return this.http.put<Assurance>(`${this.updateassurancepsUrl}/${id}`,assurance);
   }
+  getprix(assurance:Assurance):Observable<Number>{
+    return this.http.put<Number>(`${this.calculprixUrl}`,assurance);
+    }
+  
 }
