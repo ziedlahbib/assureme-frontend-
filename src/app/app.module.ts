@@ -28,6 +28,7 @@ import { UserLayoutComponent } from "./layouts/user-layout/user-layout.component
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { UserLayoutComponent } from "./layouts/user-layout/user-layout.component
     FooterFrontComponent,
     NavigationComponent,
     NavbarFrontComponent,
+ 
 
  
 

@@ -25,6 +25,7 @@ import { VehiculeManagmentComponent } from 'app/pages/vehicule-managment/vehicul
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { HomeComponent } from 'app/pages/home/home.component';
 import { UserComponent } from 'app/pages/user/user.component';
+import { MeilleurpackComponent } from 'app/pages/meilleurpack/meilleurpack.component';
 
 // import { ToastrModule } from 'ngx-toastr';
 @NgModule({
@@ -61,6 +62,7 @@ import { UserComponent } from 'app/pages/user/user.component';
     VehiculeManagmentComponent,
     HomeComponent,
     UserComponent,
+    MeilleurpackComponent,
 
   ]
   ,entryComponents: [],

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Assurance } from 'app/models/assurance.model';
+import { Mpack } from 'app/models/mpack.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -14,6 +15,8 @@ export class AssuranceServiceService {
   getAssuranceurl="/api/Assurance/get-assu";
   updateassurancepsUrl="/api/Assurance/update-assurance";
   calculprixUrl="/api/Assurance/calcule-prix";
+  listmeilleurpackurl="/api/Assurance/meilleur-pack-asurance";
+  minimumpriceurl="/api/Assurance/minimumprice";
 
   constructor(private http : HttpClient) { }
 
@@ -36,5 +39,11 @@ export class AssuranceServiceService {
   getprix(assurance:Assurance):Observable<Number>{
     return this.http.put<Number>(`${this.calculprixUrl}`,assurance);
     }
+    getmeilleurpack(mpack:Mpack):Observable<Assurance[]>{
+      return this.http.put<Assurance[]>(`${this.listmeilleurpackurl}`,mpack);
+      }
+      getminimumprice(mpack:Mpack):Observable<Number>{
+        return this.http.put<Number>(`${this.minimumpriceurl}`,mpack);
+        }
   
 }
