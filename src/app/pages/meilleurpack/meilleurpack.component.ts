@@ -34,9 +34,9 @@ export class MeilleurpackComponent implements OnInit {
       ageauto: [''],
       puissance: [''],
       mode_financement: [''],
-      sit_matrimoniale: [''],
-      conjointpermis: [{value:'',disabled:true}],
-      ageconjpermis: [{value:'',disabled:true}],
+      sit_matrimoniale: ['celibataire'],
+      conjointpermis: [{value:'no',disabled:true}],
+      ageconjpermis: [{value:0,disabled:true}],
   });
 
   this.mpackform.valueChanges.subscribe(
@@ -81,7 +81,8 @@ showorhideconjointpermis(){
 
   }else{
     this.mpackform.controls['conjointpermis'].disable();
-    this.mpackform.controls['conjointpermis'].setValue('');
+    this.mpackform.controls['conjointpermis'].setValue('no');
+    this.mpackform.controls['ageconjpermis'].setValue(0);
   }
 }
 showorhideageconjpermis(){
@@ -90,7 +91,7 @@ showorhideageconjpermis(){
     this.mpackform.controls['ageconjpermis'].enable();
   }else{
     this.mpackform.controls['ageconjpermis'].disable();
-    this.mpackform.controls['ageconjpermis'].setValue('');
+    this.mpackform.controls['ageconjpermis'].setValue(0);
   }
 }
 }
