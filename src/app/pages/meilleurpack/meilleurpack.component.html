@@ -107,6 +107,9 @@
               <br> protection juridique: {{a.protection_juridique}}<br>
               <br> garentie incendie: {{a.garentie_incendie}}<br>
             </p>
+            <button type="button" class="btn btn-primary">souscrire</button>
+            <button type="button" class="btn btn-warning" [routerLink]="['/souscription/modifier', a.assuId ]">Personalisé Pack</button>
+
         </div>
       </div>
     </div>

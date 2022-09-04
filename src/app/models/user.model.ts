@@ -1,4 +1,5 @@
 
+import { FileDB } from "./file-db.model";
 import { Role } from "./role.model";
 import { Vehicule } from "./vehicule.model";
 
@@ -22,4 +23,5 @@ export class User {
     date_obtention_permis:String;
     sit_matr:String;
     veh:Vehicule[];
+    files:FileDB;
 }
