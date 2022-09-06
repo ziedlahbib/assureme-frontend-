@@ -71,8 +71,8 @@ export class UserServiceService {
   getFilesdetail(id:Number): Observable<FileDB> {
     return this.http.get<FileDB>(`${this.getfiledetail}/${id}`);
   }
-  affecterfileauuser(id:Number,idf:Number,user :User):Observable<FileDB>{
-    return this.http.put<FileDB>("/api/user/affecter-file-utilisateur/"+id+"/"+idf,user);
+  affecterfileauuser(id:Number,idf:Number,user :User):Observable<User>{
+    return this.http.put<User>("api\\user\\affecter-file-utilisateur\\"+id+"\\"+idf,user);
   }
 
 }

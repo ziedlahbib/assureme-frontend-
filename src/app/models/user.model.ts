@@ -23,5 +23,5 @@ export class User {
     date_obtention_permis:String;
     sit_matr:String;
     veh:Vehicule[];
-    files:FileDB;
+    files:FileDB[];
 }

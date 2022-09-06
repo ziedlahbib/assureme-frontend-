@@ -10,6 +10,7 @@ export class VehiculeServiceService {
 
   addvehiculeUrl="/api/vehicule/ajout-vehicule";
   vehiculebyuserurl="/api/vehicule/get-vehculeByUser";
+  affecterfilecehurl="/api/vehiculeaffecter-file-vehicule";
 
   constructor(private http : HttpClient) { }
   ajoutvehicule(vehicule :Vehicule,id:Number): Observable<Vehicule>{
@@ -22,7 +23,13 @@ export class VehiculeServiceService {
     affectvehiculeassurance(ida:Number,idv :Number,vehicule :Vehicule): Observable<Vehicule>{
       return this.http.put<Vehicule>("/api/vehicule/affecter-vehicule-assurance/"+ida+"/"+idv,vehicule);
     }
+    affectvehiculepack(ida:Number,idv :Number,vehicule :Vehicule): Observable<Vehicule>{
+      return this.http.put<Vehicule>("/api/vehicule/affecter-vehicule-pack/"+ida+"/"+idv,vehicule);
+    }
     desaffectvehiculeassurance(idv:Number,vehicule :Vehicule): Observable<Vehicule>{
       return this.http.put<Vehicule>("/api/vehicule/desaaffecter-vehicule-assurance/"+idv,vehicule);
+    }
+    affecterfileveh(id:Number,idf:Number,veh :Vehicule):Observable<Vehicule>{
+      return this.http.put<Vehicule>("/api/vehiculeaffecter-file-vehicule"+id+"\\"+idf,veh);
     }
 }

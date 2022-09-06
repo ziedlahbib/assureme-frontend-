@@ -2,9 +2,9 @@
     <form [formGroup]="assuranceform">
         <div class="col-md-4 px-1">
           <div class="col-md-5 pr-1">
-            <div class="form-group">
+            <div class="form-group" >
               <label>prix (disabled)</label>
-              <input type="text" class="form-control" disabled="" placeholder={{assurance.prix}} formControlName="prix" >
+              <input type="text" class="form-control" disabled=""  formControlName="prix" >
             </div>
           </div>
           </div>
@@ -12,7 +12,7 @@
           <div class="col-md-4 px-1">
             <div class="form-group">
               <label>garantie Conducteur</label>
-              <select class="form-control" formControlName="garantie_conducteur">
+              <select class="form-control" formControlName="garantie_conducteur" (click)="getprix()">
                 <option >yes</option>
                 <option >no</option>
               </select>
@@ -22,7 +22,7 @@
           <div class="col-md-4 px-1">
             <div class="form-group">
               <label>bris de glace</label>
-              <select class="form-control" formControlName="bris_de_glace">
+              <select class="form-control" formControlName="bris_de_glace" (click)="getprix()">
                 <option >yes</option>
                 <option >no</option>
               </select>
@@ -32,7 +32,7 @@
           <div class="col-md-4 px-1">
             <div class="form-group">
               <label>vol</label>
-              <select class="form-control" formControlName="vol">
+              <select class="form-control" formControlName="vol" (click)="getprix()">
                 <option >yes</option>
                 <option >no</option>
               </select>
@@ -42,7 +42,7 @@
           <div class="col-md-4 px-1">
             <div class="form-group" >
               <label>Assistance</label>
-              <select class="form-control"  formControlName="assistance">
+              <select class="form-control"  formControlName="assistance" (click)="getprix()">
                 <option >yes</option>
                 <option >no</option>
               </select>
@@ -52,7 +52,7 @@
           <div class="col-md-4 px-1">
             <div class="form-group">
               <label>protection juridique</label>
-              <select class="form-control" formControlName="protection_juridique">
+              <select class="form-control" formControlName="protection_juridique" (click)="getprix()">
                 <option >yes</option>
                 <option >no</option>
               </select>
@@ -62,7 +62,7 @@
           <div class="col-md-4 px-1">
             <div class="form-group">
               <label>garantie incendie</label>
-              <select class="form-control "formControlName="garentie_incendie">
+              <select class="form-control "formControlName="garentie_incendie" (click)="getprix()">
                 <option>yes</option>
                 <option >no</option>
               </select>
@@ -72,7 +72,7 @@
         </div>
       <div class="row">
         <div class="update ml-auto mr-auto">
-          <button type="submit" class="btn btn-primary btn-round" (click)="confirmer()" [disabled]="assuranceform.invalid">update</button>
+          <button type="submit" class="btn btn-primary btn-round" (click)="confirmer()" [disabled]="assuranceform.invalid">confirmer</button>
         </div>
       </div>
     </form>
@@ -148,11 +148,17 @@
             -->
          
             
-            
-           <form method="post" action="http://localhost:4200/api/File/uploadf " enctype="multipart/form-data">
+           <!--
+                <form method="post" action="http://localhost:4200/api/File/uploadf " enctype="multipart/form-data">
+            <label for="example-date-input" class="col-2 col-form-label">cin</label>
               <input type="file" name="file" (change)="selectFile($event);upload()" />
-            </form>
+            </for
+           --> 
             
+           <div class="mb-3">
+            <label for="formFile" class="form-label">CIN</label>
+            <input class="form-control" type="file" id="formFile" (change)="selectFile($event);upload()">
+          </div>
            
             <div class="row">
               <div class="update ml-auto mr-auto">
@@ -164,4 +170,93 @@
       </div>
     </div>
   </div>
+  <hr>
+  <div class="card-body">
+    <form [formGroup]="vehiculeform">
+        <div class="col-md-4 px-1">
+            <div class="form-group row">
+                <label for="example-date-input" class="col-2 col-form-label">date achat</label>
+                <div class="col-10">
+                  <input class="form-control" style="width:300px ;" type="date"   formControlName="date_achat">
+                  <div *ngIf="  vehiculeform.get('date_achat').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+                  
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="example-date-input" class="col-2 col-form-label">date mise en circulationt</label>
+                <div class="col-10">
+                  <input class="form-control" style="width:300px ;" type="date"   formControlName="date_mise_cir">
+                  <div *ngIf="  vehiculeform.get('date_mise_cir').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+                  
+                </div>
+              </div>
+        </div>
+       
+          <div class="form-group row">
+            <label for="example-search-input" class="col-2 col-form-label">Marque</label>
+            <div>
+              <select id="marque" formControlName="marque" class="form-control">
+                <option [value]="null">Select one...</option>
+                <option *ngFor="let c of marque | keyvalue" [value]="c.value">{{c.value}}</option>
+                
+              </select>
+              <div *ngIf="  vehiculeform.get('marque').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-search-input" class="col-2 col-form-label">modele</label>
+            <div>
+              <select id="modele" formControlName="modele" class="form-control">
+                <option [value]="null">Select one...</option>
+                <option *ngFor="let c of modele | keyvalue" [value]="c.value">{{c.value}}</option>
+                
+              </select>
+              <div *ngIf="  vehiculeform.get('modele').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-search-input" class="col-2 col-form-label">carosserie</label>
+            <div>
+              <select id="carosserie" formControlName="carosserie" class="form-control">
+                <option [value]="null">Select one...</option>
+                <option *ngFor="let c of carosserie | keyvalue" [value]="c.value">{{c.value}}</option>
+                
+              </select>
+              <div *ngIf="  vehiculeform.get('carosserie').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-search-input" class="col-2 col-form-label">puissance</label>
+            <div>
+              <select id="puissance" formControlName="puissance" class="form-control">
+                <option [value]="null">Select one...</option>
+                <option *ngFor="let c of puissance | keyvalue" [value]="c.value">{{c.value}}</option>
+                
+              </select>
+              <div *ngIf="  vehiculeform.get('puissance').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-search-input" class="col-2 col-form-label">alimentation</label>
+            <div>
+              <select id="alimentation" formControlName="alimentation" class="form-control">
+                <option [value]="null">Select one...</option>
+                <option *ngFor="let c of alimentation | keyvalue" [value]="c.value">{{c.value}}</option>
+                
+              </select>
+              <div *ngIf="  vehiculeform.get('alimentation').hasError('required')" style="color: red;"><a style="font-weight: bold;">&#x2022;</a> required</div>
+            </div>
+        </div>
+        <div class="mb-3">
+          <label for="formFile" class="form-label">CIN</label>
+          <input class="form-control" type="file" id="formFile" (change)="selectFileveh($event);uploadveh()">
+        </div>
+      <div class="row">
+        <div class="update ml-auto mr-auto">
+          <button type="submit" class="btn btn-primary btn-round" (click)="ajoutervehicule()" [disabled]="vehiculeform.invalid">ajouter</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
   
