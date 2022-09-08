@@ -203,6 +203,15 @@ modifier(){
             audio.src= "../assets/confirm2.mp3"
             audio.load();
             audio.play();
+            this.vs.getvehiculesbyuser(this.user.userId).subscribe(
+              res=>{
+                this.listofvehicule=res;
+                this.dataSource = new MatTableDataSource(res);
+                this.dataSource._renderChangesSubscription;
+                this.dataSource.paginator = this.paginator;
+                this.dataSource.sort = this.sort;
+              }
+            )
               }
             )
     
