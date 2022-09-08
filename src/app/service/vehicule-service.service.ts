@@ -30,6 +30,6 @@ export class VehiculeServiceService {
       return this.http.put<Vehicule>("/api/vehicule/desaaffecter-vehicule-assurance/"+idv,vehicule);
     }
     affecterfileveh(id:Number,idf:Number,veh :Vehicule):Observable<Vehicule>{
-      return this.http.put<Vehicule>("/api/vehiculeaffecter-file-vehicule"+id+"\\"+idf,veh);
+      return this.http.put<Vehicule>("\\api\\vehicule\\affecter-file-vehicule\\"+id+"\\"+idf,veh);
     }
 }

@@ -40,12 +40,15 @@ export class AjouterAssuranceComponent implements OnInit,AfterContentInit {
   this.assuranceform.valueChanges.subscribe(
     data=>{
       console.log(this.assuranceform.value);
-      this.as.getprix(this.assuranceform.value).subscribe(
-        res=>{
-          console.log(res);
-          this.assuranceform.controls['prix'].setValue(res);
-        }
-      )
+     
+    }
+  )
+}
+getprix(){
+  this.as.getprix(this.assuranceform.value).subscribe(
+    res=>{
+      console.log(res);
+      this.assuranceform.controls['prix'].setValue(res);
     }
   )
 }

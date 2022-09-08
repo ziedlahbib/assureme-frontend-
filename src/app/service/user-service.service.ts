@@ -15,6 +15,8 @@ export class UserServiceService {
   ajoutuserUrl="/api/user/inscription";
   uploadfilef="/api/File/uploadf";
   getfiledetail="/api/File/filesdetail";
+  getusersUrl="/api/user/get-users";
+  getuserbyidUrl="/api/user/get-user"
   constructor(private http : HttpClient) { }
   registration(user :User): Observable<User>{
     return this.http.post<User>(`${this.registartionurlUrl}`,user);
@@ -24,6 +26,10 @@ export class UserServiceService {
   }
   getuserbyusername(username:String): Observable<User>{
     return this.http.get<User>(`${this.getbyusernameurl}/${username}`);
+
+  }
+  getuserbyid(id:Number): Observable<User>{
+    return this.http.get<User>(`${this.getuserbyidUrl}/${id}`);
 
   }
   updateuser(user:User,id:Number): Observable<User>{
@@ -74,5 +80,7 @@ export class UserServiceService {
   affecterfileauuser(id:Number,idf:Number,user :User):Observable<User>{
     return this.http.put<User>("api\\user\\affecter-file-utilisateur\\"+id+"\\"+idf,user);
   }
-
+  getuser():Observable<User[]>{
+    return this.http.get<User[]>(`${this.getusersUrl}`);
+  }
 }

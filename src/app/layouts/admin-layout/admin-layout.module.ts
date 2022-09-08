@@ -31,6 +31,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { AjouterAssuranceComponent } from 'app/pages/assurance-management/ajouter-assurance/ajouter-assurance.component';
 import { ModifierAssuranceComponent } from 'app/pages/assurance-management/modifier-assurance/modifier-assurance.component';
+import { UsermanagmentComponent } from 'app/pages/usermanagment/usermanagment.component';
 
 @NgModule({
   imports: [
@@ -50,7 +51,6 @@ import { ModifierAssuranceComponent } from 'app/pages/assurance-management/modif
   ],
   declarations: [
     DashboardComponent,
-    
     TableComponent,
     UpgradeComponent,
     TypographyComponent,
@@ -60,6 +60,7 @@ import { ModifierAssuranceComponent } from 'app/pages/assurance-management/modif
     AssuranceManagementComponent,
     AjouterAssuranceComponent,
     ModifierAssuranceComponent,
+    UsermanagmentComponent
   ]
 })
 

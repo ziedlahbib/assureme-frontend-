@@ -27,6 +27,7 @@ import { HomeComponent } from 'app/pages/home/home.component';
 import { UserComponent } from 'app/pages/user/user.component';
 import { MeilleurpackComponent } from 'app/pages/meilleurpack/meilleurpack.component';
 import { SouscriptionavecpersonaliseComponent } from 'app/pages/souscriptionavecpersonalise/souscriptionavecpersonalise.component';
+import { ModifieruserComponent } from 'app/pages/usermanagment/modifieruser/modifieruser.component';
 
 
 // import { ToastrModule } from 'ngx-toastr';
@@ -66,6 +67,7 @@ import { SouscriptionavecpersonaliseComponent } from 'app/pages/souscriptionavec
     UserComponent,
     MeilleurpackComponent,
     SouscriptionavecpersonaliseComponent,
+    ModifieruserComponent,
 
   ]
   ,entryComponents: [],

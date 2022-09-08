@@ -38,14 +38,16 @@ export class ModifierAssuranceComponent implements OnInit,AfterContentInit {
   this.assuranceform.valueChanges.subscribe(
     data=>{
       console.log(this.assuranceform.value)
-      this.assuranceservice.getprix(this.assuranceform.value).subscribe(
-        res=>{
-          console.log(res);
-          this.assuranceform.controls['prix'].setValue(res);
-        }
-      )
     }
    
+  )
+}
+getprix(){
+  this.assuranceservice.getprix(this.assuranceform.value).subscribe(
+    res=>{
+      console.log(res);
+      this.assuranceform.controls['prix'].setValue(res);
+    }
   )
 }
   get(id:number){

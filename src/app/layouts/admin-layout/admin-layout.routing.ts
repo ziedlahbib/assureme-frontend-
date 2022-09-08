@@ -11,6 +11,7 @@ import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 import { AssuranceManagementComponent } from 'app/pages/assurance-management/assurance-management.component';
 import { AjouterAssuranceComponent } from 'app/pages/assurance-management/ajouter-assurance/ajouter-assurance.component';
 import { ModifierAssuranceComponent } from 'app/pages/assurance-management/modifier-assurance/modifier-assurance.component';
+import { UsermanagmentComponent } from 'app/pages/usermanagment/usermanagment.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -23,4 +24,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'assurance-management',        component: AssuranceManagementComponent }, 
     { path: 'ajouter-assurance',        component: AjouterAssuranceComponent }, 
     { path: 'assurance-management/modifier/:id',           component: ModifierAssuranceComponent, },
+    { path: 'user-managment',        component: UsermanagmentComponent }, 
 ];

@@ -4,7 +4,7 @@
           <div class="col-md-5 pr-1">
             <div class="form-group">
               <label>prix (disabled)</label>
-              <input type="text" class="form-control" disabled="" placeholder={{prix}} formControlName="prix" >
+              <input type="text" class="form-control" disabled=""  formControlName="prix" >
             </div>
           </div>
           </div>
@@ -12,7 +12,7 @@
           <div class="col-md-4 px-1">
             <div class="form-group">
               <label>garantie Conducteur</label>
-              <select class="form-control" formControlName="garantie_conducteur">
+              <select class="form-control" formControlName="garantie_conducteur" (click)="getprix()">
                 <option >yes</option>
                 <option >no</option>
               </select>
@@ -22,7 +22,7 @@
           <div class="col-md-4 px-1">
             <div class="form-group">
               <label>bris de glace</label>
-              <select class="form-control" formControlName="bris_de_glace">
+              <select class="form-control" formControlName="bris_de_glace" (click)="getprix()">
                 <option >yes</option>
                 <option >no</option>
               </select>
@@ -32,7 +32,7 @@
           <div class="col-md-4 px-1">
             <div class="form-group">
               <label>vol</label>
-              <select class="form-control" formControlName="vol">
+              <select class="form-control" formControlName="vol" (click)="getprix()">
                 <option >yes</option>
                 <option >no</option>
               </select>
@@ -42,7 +42,7 @@
           <div class="col-md-4 px-1">
             <div class="form-group" >
               <label>Assistance</label>
-              <select class="form-control"  formControlName="assistance">
+              <select class="form-control"  formControlName="assistance" (click)="getprix()">
                 <option >yes</option>
                 <option >no</option>
               </select>
@@ -52,7 +52,7 @@
           <div class="col-md-4 px-1">
             <div class="form-group">
               <label>protection juridique</label>
-              <select class="form-control" formControlName="protection_juridique">
+              <select class="form-control" formControlName="protection_juridique" (click)="getprix()">
                 <option >yes</option>
                 <option >no</option>
               </select>
@@ -62,7 +62,7 @@
           <div class="col-md-4 px-1">
             <div class="form-group">
               <label>garantie incendie</label>
-              <select class="form-control "formControlName="garentie_incendie">
+              <select class="form-control "formControlName="garentie_incendie" (click)="getprix()">
                 <option>yes</option>
                 <option >no</option>
               </select>
